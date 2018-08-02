@@ -44,7 +44,7 @@ The file is called findme.txt.  It is somewhere in the filesystem but we need to
 * Finding the file
 
 ```shell
-find . -name 'findme.txt' 
+find / -name 'findme.txt' 
 ```
 
 ## Copy Files
