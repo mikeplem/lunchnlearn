@@ -113,7 +113,9 @@ cat data.txt | sort
 
 ## Redirection
 
-Redirection allows you to send the output of a command to file.
+Redirection allows you to send the output of a command to file.  The following redirection will redirect STDOUT (standard out).
+
+The STDOUT redirector uses the `>` symbol.
 
 ```shell
 cat FILE > file.txt
@@ -125,6 +127,8 @@ cat FILE > file.txt
 cat FILE > file.txt
 cat FILE >> file.txt
 ```
+
+More redirection will be covered later.
 
 * Since the header is still part of output, lets remove that
 
@@ -181,6 +185,104 @@ awk -F "," '{print $1}' players.txt | sort | awk '{print $1}' | uniq -c | sort
 
 ```shell
 awk -F "," '{total += $3} END {print total}' players.txt
+```
+
+## Tail Part two
+
+The tail command can also be used to follow the output of a file being written to.  Normally, this would be a log file.
+
+The `-f` argument means `follow`.
+
+```shell
+tail -f /path/to/logfile
+```
+
+## Grep Part Two
+
+Grep provides some other useful arguments when doing different kinds of searches.
+
+### Show filename containing matches
+
+By default when grep is being use to search over multiple files you want the filename where matches were found to be returned.
+
+The `-H` argument shows filenames containing matches.  On Linux this is a default action.
+
+### Ignore binary files
+
+Sometimes a text string you are looking for is in a binary file but you want to ignore binary files.
+
+The `-I` argument ignores binary files.
+
+### Ingore case
+
+By default grep performs a case sensitive search.  What if you know the word you are looking for but you do not know th case?
+
+The `-i` argument provies case insensitive searches.
+
+### Recursive search
+
+If you know a directory tree of files contains something you are looking for you can perform a recursive search to look in all sub directories of the directory you perform the grep command.
+
+The `-r` argument will perform a recursive search.
+
+Note: If you want to follow symbolic links use the `-R` argument.
+
+### Return the line number of matches
+
+If you are dealing with files which contain many lines, 1000s, it is helpful for grep to return the line number of the match.
+
+The `-n` argument will return the line number.
+
+## Redirection Part Two
+
+When it comes to redirection there are three file descriptors that are primarily used.
+
+Value | File Descriptor Name | Human Readable
+----- | -------------------- | -------------- 
+0 | STDIN | Stanard In
+1 | STDOUT | Standard Out
+2 | STDERR | Standard Error
+
+In a large number of cases, you will really only ever deal with STDOUT.  As we talked about earlier we know that `>` redirects STDOUT.  There is a also a concept of STDERR (standard error).  
+
+Normally, STDOUT and STDERR will both print out to the screen.
+
+```shell
+$ ./out_err.sh 
+I am writing to STDOUT
+I am writing to STDERR
+```
+
+If you only eve want to see one of the outputs, redirect the other to /dev/null or to a file.
+
+```shell
+$ ./out_err.sh 1> /dev/null
+I am writing to STDERR
+
+or
+
+$ ./out_err.sh 2> stderr
+
+or
+
+$ ./out_err.sh 2> /dev/null
+I am writing to STDOUT
+
+or
+
+$ ./out_err.sh 1> stdout
+
+or
+
+./out_err.sh 1> stdout 2> stderr
+```
+
+### Redirect STDERR to STDOUT
+
+Sometimes you want both STDERR and STDOUT to go to the same file.
+
+```shell
+./out_err.sh > both_stdout_stderr 2>&1
 ```
 
 ## Changing Ownership
@@ -345,3 +447,4 @@ https://www.linode.com/docs/tools-reference/tools/
 
 https://wiki.archlinux.org/index.php/File_permissions_and_attributes
 
+https://en.wikipedia.org/wiki/File_descriptor
