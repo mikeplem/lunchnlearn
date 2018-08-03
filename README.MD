@@ -39,12 +39,12 @@ cd ~/
 
 I pulled the 2018 Columbus Clippers player stats to provide the file we are going to work with today.
 
-The file is called findme.txt.  It is somewhere in the filesystem but we need to find it first.
+The file is called findme.txt and it is somewhere in the /tmp directory but we need to find it first.
 
 * Finding the file
 
 ```shell
-find / -name 'findme.txt' 
+find /tmp -name 'findme.txt' 
 ```
 
 ## Copy Files
@@ -194,8 +194,10 @@ The tail command can also be used to follow the output of a file being written t
 The `-f` argument means `follow`.
 
 ```shell
-tail -f /path/to/logfile
+tail -f /tmp/current_time.log
 ```
+
+The print_time.sh script will output the current time to /tmp/current_time.log which can be following with tail -f
 
 ## Grep Part Two
 
@@ -218,6 +220,10 @@ The `-I` argument ignores binary files.
 By default grep performs a case sensitive search.  What if you know the word you are looking for but you do not know th case?
 
 The `-i` argument provies case insensitive searches.
+
+```shell
+grep -i NAME /tmp/name*
+```
 
 ### Recursive search
 
@@ -417,10 +423,19 @@ ls -l readwriteonly
 
 * What is the command for a read/write/executable file?
 
-* What is the command for a read only file for user, group, other?
+* What is the command for a read only file for user, group, other (everyone)?
 
+### Permissions and Security
+
+Why are the following permissions bad?
+
+```shell
+-rwxrwxrwx 1 mike users 0 Aug  3 16:14 test
+```
 
 ## Resources
+
+* https://github.com/mikeplem/lunchnlearn
 
 * man pages
 
