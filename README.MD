@@ -260,7 +260,7 @@ sed '/^$/d' /tmp/comments_newlines.txt
 To extend the previous grep match inversion, we can remove the all lines that start with a # and then pipe the output to sed to remove new lines.
 
 ```shell
-grep -v '^#' comments_newlines.txt | sed '/^$/d'
+grep -v '^#' /tmp/comments_newlines.txt | sed '/^$/d'
 ```
 
 ## Redirection Part Two
