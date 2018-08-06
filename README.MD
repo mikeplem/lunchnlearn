@@ -1,5 +1,7 @@
 # Linux Command Line Lunch and Learn
 
+# Table of Contents
+
 ## Objectives
 
 We are going to attempt to cover the following commands.  The examples provided are not exhaustive of what each command can do.
