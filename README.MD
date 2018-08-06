@@ -239,6 +239,30 @@ If you are dealing with files which contain many lines, 1000s, it is helpful for
 
 The `-n` argument will return the line number.
 
+### Invert your match
+
+Sometimes instead of searching for something you want to not search for something.  A good example are looking at a large file while removing comments. Use the `-v` argument to invert your match
+
+```shell
+grep -v '^#' /tmp/comments.txt
+```
+
+## Sed Part Two
+
+Sometimes you encounter files that have lot of empty lines and you desire to give rid of them so you only see the relevan text.
+
+Recall earlier it was stated that `^` represents the start of a line and that `$` represents the end of a line.  In sed the `d` modifier means `delete`.
+
+```shell
+sed '/^$/d' /tmp/comments_newlines.txt
+```
+
+To extend the previous grep match inversion, we can remove the all lines that start with a # and then pipe the output to sed to remove new lines.
+
+```shell
+grep -v '^#' comments_newlines.txt | sed '/^$/d'
+```
+
 ## Redirection Part Two
 
 When it comes to redirection there are three file descriptors that are primarily used.
