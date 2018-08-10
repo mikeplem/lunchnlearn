@@ -278,7 +278,7 @@ In a large number of cases, you will really only ever deal with STDOUT.  As we t
 Normally, STDOUT and STDERR will both print out to the screen.
 
 ```shell
-$ ./out_err.sh 
+$ ./std_out_err.sh 
 I am writing to STDOUT
 I am writing to STDERR
 ```
@@ -286,25 +286,25 @@ I am writing to STDERR
 If you only eve want to see one of the outputs, redirect the other to /dev/null or to a file.
 
 ```shell
-$ ./out_err.sh 1> /dev/null
+$ ./std_out_err.sh 1> /dev/null
 I am writing to STDERR
 
 or
 
-$ ./out_err.sh 2> stderr
+$ ./std_out_err.sh 2> stderr
 
 or
 
-$ ./out_err.sh 2> /dev/null
+$ ./std_out_err.sh 2> /dev/null
 I am writing to STDOUT
 
 or
 
-$ ./out_err.sh 1> stdout
+$ ./std_out_err.sh 1> stdout
 
 or
 
-./out_err.sh 1> stdout 2> stderr
+./std_out_err.sh 1> stdout 2> stderr
 ```
 
 ### Redirect STDERR to STDOUT
@@ -312,7 +312,7 @@ or
 Sometimes you want both STDERR and STDOUT to go to the same file.
 
 ```shell
-./out_err.sh > both_stdout_stderr 2>&1
+./std_out_err.sh > both_stdout_stderr 2>&1
 ```
 
 ## Changing Ownership
