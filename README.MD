@@ -445,6 +445,14 @@ ls -l readwriteonly
 -rw------- 1 mike users 0 Jul 28 15:24 readwriteonly
 ```
 
+### Benefits over Octal
+
+When you only want to change a certain permission on a set of files and/or directories, the text method is the best way.  For example, if you want to only add write permissions to group ownership you can do something like this.
+
+```shell
+chmod g=w <files>
+```
+
 * What is the command for a read/write/executable file?
 
 * What is the command for a read only file for user, group, other (everyone)?
