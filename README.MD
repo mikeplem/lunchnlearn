@@ -16,6 +16,7 @@ cat | Print file contents to screen
 wc | Word count
 grep | Search files matching a pattern
 sed | Editor and text transformer
+cut | Print sections from a line
 awk | Pattern matching and text processing language
 sort | Sort a file
 uniq | Only print unique entries
@@ -99,14 +100,6 @@ tail -3 data.txt
 grep 'RF' data.txt
 ```
 
-### Using grep with cut
-
-* Prints out just the names of all right fielders
-
-```shell
-grep "RF" players.txt | cut -d , -f 1
-```
-
 ## Sorting
 
 * Sort the player list by name alphabetically
@@ -146,6 +139,8 @@ tail -28 data.txt > players.txt
 
 ## Awk
 
+Awk is a scripting language and can do much more than what is shown here.
+
 * Show only player names and home runs
 
 ```shell
@@ -156,6 +151,34 @@ awk -F "," '{ print $1 " " $3 }' players.txt
 
 ```shell
 awk -F "," '{ print $1 " has scored " $3 " home runs" }' players.txt
+```
+
+## Cut 
+
+Cut can be used the same way awk can be when it comes to printing columnar data.
+
+* Show only player names and home runs
+
+```shell
+cut -d , -f 1,3 players.txt
+```
+
+### Using grep with cut
+
+* Prints out just the names of all right fielders
+
+```shell
+grep "RF" players.txt | cut -d , -f 1
+```
+
+### Something awk cannot do as easily
+
+Cut allows you to print starting from a chosen column to the end of a the file.
+
+* Prints out the player position and home runs
+
+```shell
+cut -d , -f 2- players.txt
 ```
 
 ## Sed
