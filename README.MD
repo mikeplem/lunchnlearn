@@ -99,6 +99,14 @@ tail -3 data.txt
 grep 'RF' data.txt
 ```
 
+### Using grep with cut
+
+* Prints out just the names of all right fielders
+
+```shell
+grep "RF" players.txt | cut -d , -f 1
+```
+
 ## Sorting
 
 * Sort the player list by name alphabetically
