@@ -526,3 +526,7 @@ https://www.linode.com/docs/tools-reference/tools/
 https://wiki.archlinux.org/index.php/File_permissions_and_attributes
 
 https://en.wikipedia.org/wiki/File_descriptor
+
+https://linuxacademy.com/ - This is a paid Linux training website
+
+https://www.commandlinefu.com/commands/browse - Lots of different command line examples.
