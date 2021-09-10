@@ -40,7 +40,7 @@ cd ~/
 
 I pulled the 2018 Columbus Clippers player stats to provide the file we are going to work with today.
 
-The file is called findme.txt and it is somewhere in the /tmp directory but we need to find it first.
+The file is called findme.txt and it is somewhere in the /tmp directory but we need to find it first. If you are seeing this document and it is outside of the training class I gave, download the findme.txt file and save it to your /tmp directory.
 
 * Finding the file
 
